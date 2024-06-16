@@ -18,6 +18,9 @@
             <Platform>x64</Platform>
         </ProjectConfiguration>
     </ItemGroup>
+    <ItemGroup>
+      <ClInclude Include="ansi.h" />
+    </ItemGroup>
     <PropertyGroup Label="Globals">
         <VCProjectVersion>15.0</VCProjectVersion>
         <ProjectGuid>{63F2A8BB-B82E-420A-BA35-EB8E3DB6F316}</ProjectGuid>
