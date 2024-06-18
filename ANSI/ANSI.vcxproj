@@ -20,6 +20,10 @@
     </ItemGroup>
     <ItemGroup>
       <ClInclude Include="ansi.h" />
+      <ClInclude Include="ansi.hpp" />
+    </ItemGroup>
+    <ItemGroup>
+      <ClCompile Include="ansi.cpp" />
     </ItemGroup>
     <PropertyGroup Label="Globals">
         <VCProjectVersion>15.0</VCProjectVersion>
@@ -101,6 +105,7 @@
             <LanguageStandard_C>stdclatest</LanguageStandard_C>
             <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
             <TranslateIncludes>true</TranslateIncludes>
+            <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
         </ClCompile>
         <Link>
             <SubSystem>Windows</SubSystem>
@@ -120,6 +125,7 @@
             <LanguageStandard_C>stdclatest</LanguageStandard_C>
             <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
             <TranslateIncludes>true</TranslateIncludes>
+            <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
         </ClCompile>
         <Link>
             <SubSystem>Windows</SubSystem>
@@ -142,6 +148,7 @@
             <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
             <TranslateIncludes>true</TranslateIncludes>
             <DebugInformationFormat>None</DebugInformationFormat>
+            <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
         </ClCompile>
         <Link>
             <SubSystem>Windows</SubSystem>
@@ -166,6 +173,7 @@
             <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
             <TranslateIncludes>true</TranslateIncludes>
             <DebugInformationFormat>None</DebugInformationFormat>
+            <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
         </ClCompile>
         <Link>
             <SubSystem>Windows</SubSystem>

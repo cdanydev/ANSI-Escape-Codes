@@ -2,6 +2,11 @@
 
 #define ESC "\x1b["
 
+#if __STDC_VERSION__ == 202311L
+// C23 constexpr alternatives to the macros.
+#endif
+
+#if defined(ANSI_USE_MACROS) || __STDC_VERSION__ < 202311L
 #define CUU(n) ESC #n "A"
 #define CUD(n) ESC #n "B"
 #define CUF(n) ESC #n "C"
@@ -84,3 +89,4 @@
 
 #define FG(n) SGR(48;5;n)
 #define FG_RGB(r, g, b) SGR(48;2;r;g;b)
+#endif
