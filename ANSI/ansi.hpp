@@ -6,41 +6,39 @@
 
 namespace ansi
 {
-    typedef unsigned char value_t;
+    typedef unsigned char color_t;
 
 #if __cplusplus >= 202002L
     inline namespace csi
     {
         namespace caret
         {
-            auto up(value_t = 1) -> std::string;
-            auto down(value_t = 1) -> std::string;
-            auto forward(value_t = 1) -> std::string;
-            auto back(value_t = 1) -> std::string;
+            auto up(color_t = 1) -> std::string;
+            auto down(color_t = 1) -> std::string;
+            auto forward(color_t = 1) -> std::string;
+            auto back(color_t = 1) -> std::string;
 
-            auto move(value_t) -> std::string;
-            auto move(value_t, value_t) -> std::string;
+            auto move(color_t) -> std::string;
+            auto move(color_t, color_t) -> std::string;
         }
 
         namespace line
         {
-            auto next(value_t = 1) -> std::string;
-            auto prev(value_t = 1) -> std::string;
+            auto next(color_t = 1) -> std::string;
+            auto prev(color_t = 1) -> std::string;
         }
 
         namespace erase
         {
-            auto all(value_t = 0) -> std::string;
-            auto line(value_t = 0) -> std::string;
+            auto all(color_t = 0) -> std::string;
+            auto line(color_t = 0) -> std::string;
         }
 
         namespace scroll
         {
-            auto up(value_t = 1) -> std::string;
-            auto down(value_t = 1) -> std::string;
+            auto up(color_t = 1) -> std::string;
+            auto down(color_t = 1) -> std::string;
         }
-
-        auto sgr(value_t) -> std::string;
     }
 #endif
 
@@ -79,15 +77,15 @@ namespace ansi
             constexpr auto red = "\x1b[31m";
             constexpr auto green = "\x1b[32m";
             constexpr auto yellow = "\x1b[33m";
-            constexpr auto blue = "\x1b[34m";
+            constexpr auto indigo = "\x1b[34m";
             constexpr auto magenta = "\x1b[35m";
             constexpr auto cyan = "\x1b[36m";
             constexpr auto white = "\x1b[37m";
             constexpr auto gray = "\x1b[90m";
 
 #if __cplusplus >= 202002L
-            auto set(value_t) -> std::string;
-            auto set(value_t r, value_t g, value_t b) -> std::string;
+            auto set(color_t) -> std::string;
+            auto set(color_t r, color_t g, color_t b) -> std::string;
 #endif
             
             namespace bright
@@ -96,7 +94,7 @@ namespace ansi
                 constexpr auto red = "\x1b[91m";
                 constexpr auto green = "\x1b[92m";
                 constexpr auto yellow = "\x1b[93m";
-                constexpr auto blue = "\x1b[94m";
+                constexpr auto indigo = "\x1b[94m";
                 constexpr auto magenta = "\x1b[95m";
                 constexpr auto cyan = "\x1b[96m";
                 constexpr auto white = "\x1b[97m";
@@ -109,15 +107,15 @@ namespace ansi
             constexpr auto red = "\x1b[41m";
             constexpr auto green = "\x1b[42m";
             constexpr auto yellow = "\x1b[43m";
-            constexpr auto blue = "\x1b[44m";
+            constexpr auto indigo = "\x1b[44m";
             constexpr auto magenta = "\x1b[45m";
             constexpr auto cyan = "\x1b[46m";
             constexpr auto white = "\x1b[47m";
             constexpr auto gray = "\x1b[100m";
 
 #if __cplusplus >= 202002L
-            auto set(value_t) -> std::string;
-            auto set(value_t r, value_t g, value_t b) -> std::string;
+            auto set(color_t) -> std::string;
+            auto set(color_t r, color_t g, color_t b) -> std::string;
 #endif
             
             namespace bright
@@ -126,7 +124,7 @@ namespace ansi
                 constexpr auto red = "\x1b[101m";
                 constexpr auto green = "\x1b[102m";
                 constexpr auto yellow = "\x1b[103m";
-                constexpr auto blue = "\x1b[104m";
+                constexpr auto indigo = "\x1b[104m";
                 constexpr auto magenta = "\x1b[105m";
                 constexpr auto cyan = "\x1b[106m";
                 constexpr auto white = "\x1b[97m";

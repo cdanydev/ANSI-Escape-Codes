@@ -4,12 +4,12 @@ import std;
 
 namespace ansi
 {
-    using value_t = unsigned char;
+    using color_t = char8_t;
 
     template <std::size_t N>
     struct csi
     {
-        value_t value[N];
+        color_t value[N];
         char type;
     };
 
@@ -22,23 +22,23 @@ namespace ansi
     {
         namespace caret
         {
-            constexpr auto up(const value_t n = 1) -> csi<1> { return {n, 'A'}; }
-            constexpr auto down(const value_t n = 1) -> csi<1> { return {n, 'B'}; }
-            constexpr auto forward(const value_t n = 1) -> csi<1> { return {n, 'C'}; }
-            constexpr auto back(const value_t n = 1) -> csi<1> { return {n, 'D'}; }
-            constexpr auto move(const value_t row) -> csi<1> { return {row, 'G'}; }
-            constexpr auto move(const value_t row, const value_t column) -> csi<2> { return {row, column, 'H'}; }
+            constexpr auto up(const color_t n = 1) -> csi<1> { return {n, 'A'}; }
+            constexpr auto down(const color_t n = 1) -> csi<1> { return {n, 'B'}; }
+            constexpr auto forward(const color_t n = 1) -> csi<1> { return {n, 'C'}; }
+            constexpr auto back(const color_t n = 1) -> csi<1> { return {n, 'D'}; }
+            constexpr auto move(const color_t row) -> csi<1> { return {row, 'G'}; }
+            constexpr auto move(const color_t row, const color_t column) -> csi<2> { return {row, column, 'H'}; }
         }
 
         namespace line
         {
-            constexpr auto next(const value_t n = 1) -> csi<1> { return {n, 'E'}; }
-            constexpr auto prev(const value_t n = 1) -> csi<1> { return {n, 'F'}; }
+            constexpr auto next(const color_t n = 1) -> csi<1> { return {n, 'E'}; }
+            constexpr auto prev(const color_t n = 1) -> csi<1> { return {n, 'F'}; }
         }
 
         namespace erase
         {
-            enum erase_mode final : value_t { from_caret, to_caret, whole };
+            enum erase_mode final : color_t { from_caret, to_caret, whole };
 
             constexpr auto all(const erase_mode n = whole) -> csi<1> { return {n, 'J'}; }
             constexpr auto line(const erase_mode n = whole) -> csi<1> { return {n, 'K'}; }
@@ -46,8 +46,8 @@ namespace ansi
 
         namespace scroll
         {
-            constexpr auto up(const value_t n = 1) -> csi<1> { return {n, 'S'}; }
-            constexpr auto down(const value_t n = 1) -> csi<1> { return {n, 'T'}; }
+            constexpr auto up(const color_t n = 1) -> csi<1> { return {n, 'S'}; }
+            constexpr auto down(const color_t n = 1) -> csi<1> { return {n, 'T'}; }
         }
 
         namespace fg
@@ -56,7 +56,7 @@ namespace ansi
             constexpr color4_t red{31, 'm'};
             constexpr color4_t green{32, 'm'};
             constexpr color4_t yellow{33, 'm'};
-            constexpr color4_t blue{34, 'm'};
+            constexpr color4_t indigo{34, 'm'};
             constexpr color4_t magenta{35, 'm'};
             constexpr color4_t cyan{36, 'm'};
             constexpr color4_t white{37, 'm'};
@@ -67,14 +67,14 @@ namespace ansi
                 constexpr color4_t red{91, 'm'};
                 constexpr color4_t green{92, 'm'};
                 constexpr color4_t yellow{93, 'm'};
-                constexpr color4_t blue{94, 'm'};
+                constexpr color4_t indigo{94, 'm'};
                 constexpr color4_t magenta{95, 'm'};
                 constexpr color4_t cyan{96, 'm'};
                 constexpr color4_t white{97, 'm'};
             }
 
-            constexpr auto set(const value_t n) -> csi<3> { return {38, 5, n, 'm'}; }
-            constexpr auto set(const value_t r, const value_t g, const value_t b) -> csi<5> { return {38, 2, r, g, b, 'm'}; }
+            constexpr auto set(const color_t n) -> csi<3> { return {38, 5, n, 'm'}; }
+            constexpr auto set(const color_t r, const color_t g, const color_t b) -> csi<5> { return {38, 2, r, g, b, 'm'}; }
         }
 
         namespace bg
@@ -83,7 +83,7 @@ namespace ansi
             constexpr color4_t red{41, 'm'};
             constexpr color4_t green{42, 'm'};
             constexpr color4_t yellow{43, 'm'};
-            constexpr color4_t blue{44, 'm'};
+            constexpr color4_t indigo{44, 'm'};
             constexpr color4_t magenta{45, 'm'};
             constexpr color4_t cyan{46, 'm'};
             constexpr color4_t white{47, 'm'};
@@ -94,14 +94,14 @@ namespace ansi
                 constexpr color4_t red{101, 'm'};
                 constexpr color4_t green{102, 'm'};
                 constexpr color4_t yellow{103, 'm'};
-                constexpr color4_t blue{104, 'm'};
+                constexpr color4_t indigo{104, 'm'};
                 constexpr color4_t magenta{105, 'm'};
                 constexpr color4_t cyan{106, 'm'};
                 constexpr color4_t white{107, 'm'};
             }
 
-            constexpr auto set(const value_t n) -> csi<3> { return {48, 5, n, 'm'}; }
-            constexpr auto set(const value_t r, const value_t g, const value_t b) -> csi<5> { return {48, 2, r, g, b, 'm'}; }
+            constexpr auto set(const color_t n) -> csi<3> { return {48, 5, n, 'm'}; }
+            constexpr auto set(const color_t r, const color_t g, const color_t b) -> csi<5> { return {48, 2, r, g, b, 'm'}; }
         }
 
         constexpr csi<1> reset{0, 'm'};

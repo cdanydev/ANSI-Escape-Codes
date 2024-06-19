@@ -25,6 +25,7 @@
     <ItemGroup>
       <ClCompile Include="ansi.cpp" />
       <ClCompile Include="ansi\ansi.ixx" />
+      <ClCompile Include="ansi\formatters.ixx" />
       <ClCompile Include="ansi\manipulators.ixx">
         <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
         <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
