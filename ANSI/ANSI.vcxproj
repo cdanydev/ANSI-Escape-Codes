@@ -25,15 +25,84 @@
     <ItemGroup>
       <ClCompile Include="ansi.cpp" />
       <ClCompile Include="ansi\ansi.ixx" />
-      <ClCompile Include="ansi\manipulators\bg.ixx" />
-      <ClCompile Include="ansi\manipulators\caret.ixx" />
-      <ClCompile Include="ansi\manipulators\csi.ixx" />
-      <ClCompile Include="ansi\manipulators\erase.ixx" />
-      <ClCompile Include="ansi\manipulators\fg.ixx" />
-      <ClCompile Include="ansi\manipulators\line.ixx" />
-      <ClCompile Include="ansi\manipulators\manipulators.ixx" />
-      <ClCompile Include="ansi\manipulators\scroll.ixx" />
-      <ClCompile Include="ansi\manipulators\style.ixx" />
+      <ClCompile Include="ansi\manip.ixx" />
+      <ClCompile Include="ansi\functions.ixx" />
+      <ClCompile Include="ansi\manipulators.ixx">
+        <AssemblerOutput>NoListing</AssemblerOutput>
+        <AssemblerListingLocation>x64\Release\</AssemblerListingLocation>
+        <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+        <BrowseInformation>false</BrowseInformation>
+        <BrowseInformationFile>x64\Release\</BrowseInformationFile>
+        <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+        <CompileAs>Default</CompileAs>
+        <ConformanceMode>true</ConformanceMode>
+        <DiagnosticsFormat>Column</DiagnosticsFormat>
+        <DisableLanguageExtensions>false</DisableLanguageExtensions>
+        <ErrorReporting>Prompt</ErrorReporting>
+        <ExpandAttributedSource>false</ExpandAttributedSource>
+        <ExceptionHandling>Sync</ExceptionHandling>
+        <EnableASAN>false</EnableASAN>
+        <EnableFuzzer>false</EnableFuzzer>
+        <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+        <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+        <FloatingPointModel>Precise</FloatingPointModel>
+        <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+        <GenerateModuleDependencies>false</GenerateModuleDependencies>
+        <GenerateSourceDependencies>false</GenerateSourceDependencies>
+        <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+        <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+        <IntrinsicFunctions>true</IntrinsicFunctions>
+        <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+        <LanguageStandard>stdcpplatest</LanguageStandard>
+        <LanguageStandard_C>stdclatest</LanguageStandard_C>
+        <MinimalRebuild>false</MinimalRebuild>
+        <ModuleDependenciesFile>x64\Release\</ModuleDependenciesFile>
+        <ModuleOutputFile>x64\Release\</ModuleOutputFile>
+        <OmitDefaultLibName>false</OmitDefaultLibName>
+        <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+        <WholeProgramOptimization>true</WholeProgramOptimization>
+        <Optimization>MaxSpeed</Optimization>
+        <ObjectFileName>x64\Release\</ObjectFileName>
+        <CallingConvention>Cdecl</CallingConvention>
+        <ProgramDataBaseFileName>D:\RiderProjects\ANSI Escape Codes\x64\Release\ANSI.pdb</ProgramDataBaseFileName>
+        <PrecompiledHeader>NotUsing</PrecompiledHeader>
+        <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+        <PrecompiledHeaderOutputFile>x64\Release\ANSI.pch</PrecompiledHeaderOutputFile>
+        <PreprocessToFile>false</PreprocessToFile>
+        <PreprocessKeepComments>false</PreprocessKeepComments>
+        <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+        <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+        <RuntimeLibrary>MultiThreadedDll</RuntimeLibrary>
+        <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+        <ShowIncludes>false</ShowIncludes>
+        <SourceDependenciesFile>x64\Release\</SourceDependenciesFile>
+        <SuppressStartupBanner>true</SuppressStartupBanner>
+        <BufferSecurityCheck>true</BufferSecurityCheck>
+        <SmallerTypeCheck>false</SmallerTypeCheck>
+        <SpectreMitigation>false</SpectreMitigation>
+        <StructMemberAlignment>Default</StructMemberAlignment>
+        <SupportJustMyCode>false</SupportJustMyCode>
+        <TrackerLogDirectory>x64\Release\ANSI.tlog\</TrackerLogDirectory>
+        <TranslateIncludes>true</TranslateIncludes>
+        <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+        <TreatWarningAsError>false</TreatWarningAsError>
+        <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+        <UseFullPaths>true</UseFullPaths>
+        <WarningLevel>Level4</WarningLevel>
+        <XMLDocumentationFileName>x64\Release\</XMLDocumentationFileName>
+        <DebugInformationFormat>None</DebugInformationFormat>
+        <IntelJCCErratum>false</IntelJCCErratum>
+        <BuildStlModules>false</BuildStlModules>
+        <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+        <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+        <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+        <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+        <PreprocessorDefinitions>NDEBUG;_LIB;_UNICODE;UNICODE;</PreprocessorDefinitions>
+        <FunctionLevelLinking>true</FunctionLevelLinking>
+        <SDLCheck>true</SDLCheck>
+        <AdditionalOptions>/Zc:__cplusplus</AdditionalOptions>
+        <LibCompiled>true</LibCompiled>
+      </ClCompile>
     </ItemGroup>
     <PropertyGroup Label="Globals">
         <VCProjectVersion>15.0</VCProjectVersion>
@@ -66,30 +135,30 @@
         <CharacterSet>Unicode</CharacterSet>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+        <ConfigurationType>StaticLibrary</ConfigurationType>
         <UseDebugLibraries>false</UseDebugLibraries>
         <PlatformToolset>v143</PlatformToolset>
         <WholeProgramOptimization>true</WholeProgramOptimization>
         <CharacterSet>Unicode</CharacterSet>
-        <ConfigurationType>StaticLibrary</ConfigurationType>
     </PropertyGroup>
-    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
     <ImportGroup Label="ExtensionSettings">
     </ImportGroup>
     <ImportGroup Label="Shared">
     </ImportGroup>
     <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
     <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
     <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
     <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+        <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
     </ImportGroup>
-    <PropertyGroup Label="UserMacros" />
+    <PropertyGroup Label="UserMacros"/>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
         <LinkIncremental>true</LinkIncremental>
     </PropertyGroup>
@@ -101,7 +170,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
         <LinkIncremental>false</LinkIncremental>
-        <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
     </PropertyGroup>
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
         <ClCompile>
@@ -190,7 +258,7 @@
             <SubSystem>Windows</SubSystem>
             <EnableCOMDATFolding>true</EnableCOMDATFolding>
             <OptimizeReferences>true</OptimizeReferences>
-            <GenerateDebugInformation>false</GenerateDebugInformation>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
         </Link>
     </ItemDefinitionGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>

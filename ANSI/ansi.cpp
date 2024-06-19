@@ -18,8 +18,6 @@ auto ansi::csi::erase::line(const value_t n) -> std::string { return std::format
 auto ansi::csi::scroll::up(const value_t n) -> std::string { return std::format("\x1b[{}S", n); }
 auto ansi::csi::scroll::down(const value_t n) -> std::string { return std::format("\x1b[{}T", n); }
 
-auto ansi::csi::sgr(const value_t n) -> std::string { return std::format("\x1b[{}m", n); }
-
 auto ansi::sgr::fg::set(const value_t n) -> std::string { return std::format("\x1b[38;5;{}m", n); }
 auto ansi::sgr::fg::set(const value_t r, const value_t g, const value_t b) -> std::string { return std::format("\x1b[38;2;{};{};{}m", r, g, b); }
 

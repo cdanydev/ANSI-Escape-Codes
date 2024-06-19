@@ -39,8 +39,6 @@ namespace ansi
             auto up(value_t = 1) -> std::string;
             auto down(value_t = 1) -> std::string;
         }
-
-        auto sgr(value_t) -> std::string;
     }
 #endif
 
@@ -79,7 +77,7 @@ namespace ansi
             constexpr auto red = "\x1b[31m";
             constexpr auto green = "\x1b[32m";
             constexpr auto yellow = "\x1b[33m";
-            constexpr auto blue = "\x1b[34m";
+            constexpr auto indigo = "\x1b[34m";
             constexpr auto magenta = "\x1b[35m";
             constexpr auto cyan = "\x1b[36m";
             constexpr auto white = "\x1b[37m";
@@ -96,7 +94,7 @@ namespace ansi
                 constexpr auto red = "\x1b[91m";
                 constexpr auto green = "\x1b[92m";
                 constexpr auto yellow = "\x1b[93m";
-                constexpr auto blue = "\x1b[94m";
+                constexpr auto indigo = "\x1b[94m";
                 constexpr auto magenta = "\x1b[95m";
                 constexpr auto cyan = "\x1b[96m";
                 constexpr auto white = "\x1b[97m";
@@ -109,7 +107,7 @@ namespace ansi
             constexpr auto red = "\x1b[41m";
             constexpr auto green = "\x1b[42m";
             constexpr auto yellow = "\x1b[43m";
-            constexpr auto blue = "\x1b[44m";
+            constexpr auto indigo = "\x1b[44m";
             constexpr auto magenta = "\x1b[45m";
             constexpr auto cyan = "\x1b[46m";
             constexpr auto white = "\x1b[47m";
@@ -126,7 +124,7 @@ namespace ansi
                 constexpr auto red = "\x1b[101m";
                 constexpr auto green = "\x1b[102m";
                 constexpr auto yellow = "\x1b[103m";
-                constexpr auto blue = "\x1b[104m";
+                constexpr auto indigo = "\x1b[104m";
                 constexpr auto magenta = "\x1b[105m";
                 constexpr auto cyan = "\x1b[106m";
                 constexpr auto white = "\x1b[97m";
