@@ -6,38 +6,38 @@
 
 namespace ansi
 {
-    typedef unsigned char color_t;
+    typedef unsigned char value_t;
 
 #if __cplusplus >= 202002L
     inline namespace csi
     {
         namespace caret
         {
-            auto up(color_t = 1) -> std::string;
-            auto down(color_t = 1) -> std::string;
-            auto forward(color_t = 1) -> std::string;
-            auto back(color_t = 1) -> std::string;
+            auto up(value_t = 1) -> std::string;
+            auto down(value_t = 1) -> std::string;
+            auto forward(value_t = 1) -> std::string;
+            auto back(value_t = 1) -> std::string;
 
-            auto move(color_t) -> std::string;
-            auto move(color_t, color_t) -> std::string;
+            auto move(value_t) -> std::string;
+            auto move(value_t, value_t) -> std::string;
         }
 
         namespace line
         {
-            auto next(color_t = 1) -> std::string;
-            auto prev(color_t = 1) -> std::string;
+            auto next(value_t = 1) -> std::string;
+            auto prev(value_t = 1) -> std::string;
         }
 
         namespace erase
         {
-            auto all(color_t = 0) -> std::string;
-            auto line(color_t = 0) -> std::string;
+            auto all(value_t = 0) -> std::string;
+            auto line(value_t = 0) -> std::string;
         }
 
         namespace scroll
         {
-            auto up(color_t = 1) -> std::string;
-            auto down(color_t = 1) -> std::string;
+            auto up(value_t = 1) -> std::string;
+            auto down(value_t = 1) -> std::string;
         }
     }
 #endif
@@ -84,8 +84,8 @@ namespace ansi
             constexpr auto gray = "\x1b[90m";
 
 #if __cplusplus >= 202002L
-            auto set(color_t) -> std::string;
-            auto set(color_t r, color_t g, color_t b) -> std::string;
+            auto set(value_t) -> std::string;
+            auto set(value_t r, value_t g, value_t b) -> std::string;
 #endif
             
             namespace bright
@@ -114,8 +114,8 @@ namespace ansi
             constexpr auto gray = "\x1b[100m";
 
 #if __cplusplus >= 202002L
-            auto set(color_t) -> std::string;
-            auto set(color_t r, color_t g, color_t b) -> std::string;
+            auto set(value_t) -> std::string;
+            auto set(value_t r, value_t g, value_t b) -> std::string;
 #endif
             
             namespace bright

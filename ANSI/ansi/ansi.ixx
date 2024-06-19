@@ -1,4 +1,4 @@
 ﻿export module ansi;
 
-export import :modifiers;
+export import :manipulators;
 export import :functions;
