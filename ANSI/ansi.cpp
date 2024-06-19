@@ -7,7 +7,7 @@ auto ansi::csi::caret::forward(const value_t n) -> std::string { return std::for
 auto ansi::csi::caret::back(const value_t n) -> std::string { return std::format("\x1b[{}D", n); }
 
 auto ansi::csi::caret::move(const value_t n) -> std::string { return std::format("\x1b[{}G", n); }
-auto ansi::csi::caret::move(const value_t n, const value_t m) -> std::string { return std::format("\x1b[{};{}G", n, m); }
+auto ansi::csi::caret::move(const value_t n, const value_t m) -> std::string { return std::format("\x1b[{};{}H", n, m); }
 
 auto ansi::csi::line::next(const value_t n) -> std::string { return std::format("\x1b[{}E", n); }
 auto ansi::csi::line::prev(const value_t n) -> std::string { return std::format("\x1b[{}F", n); }
