@@ -121,33 +121,33 @@ export namespace ansi
     }
 
     template <manip... Modifiers, typename... Args>
-    auto print(std::ostream& stream, const std::format_string<Args...> fmt, Args&&... args) -> void
+    auto print(std::ostream& stream, const std::string_view fmt, Args&&... args) -> void
     {
         if constexpr (sizeof...(Modifiers) > 0)
         {
             (..., (stream << Modifiers));
 
-            std::vprint_unicode(fmt.get(), std::make_format_args(args...));
+            std::vprint_unicode(stream, fmt, std::make_format_args(args...));
             stream << "\x1b[0m";
         }
-        else std::vprint_unicode(fmt.get(), std::make_format_args(args...));
+        else std::vprint_unicode(stream, fmt, std::make_format_args(args...));
     }
 
     template <manip... Modifiers, typename... Args>
-    auto print(const std::format_string<Args...> fmt, Args&&... args) -> void
+    auto print(const std::string_view fmt, Args&&... args) -> void
     {
         ansi::print<Modifiers...>(std::cout, fmt, std::forward<Args>(args)...);
     }
 
     template <manip... Modifiers, typename... Args>
-    auto println(std::ostream& stream, const std::format_string<Args...> fmt, Args&&... args) -> void
+    auto println(std::ostream& stream, const std::string_view fmt, Args&&... args) -> void
     {
         ansi::print<Modifiers...>(stream, fmt, std::forward<Args>(args)...);
         stream << std::endl;
     }
 
     template <manip... Modifiers, typename... Args>
-    auto println(const std::format_string<Args...> fmt, Args&&... args) -> void
+    auto println(const std::string_view fmt, Args&&... args) -> void
     {
         ansi::println<Modifiers...>(std::cout, fmt, std::forward<Args>(args)...);
     }
