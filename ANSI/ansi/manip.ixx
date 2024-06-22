@@ -1,4 +1,4 @@
-﻿export module ansi:manip;
+export module ansi:manip;
 
 import std;
 

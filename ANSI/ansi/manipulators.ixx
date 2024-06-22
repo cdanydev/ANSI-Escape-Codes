@@ -1,4 +1,4 @@
-﻿export module ansi:manipulators;
+export module ansi:manipulators;
 
 import std;
 import :manip;
@@ -45,7 +45,10 @@ export namespace ansi::manipulators
         constexpr color4_t magenta{35, 'm'};
         constexpr color4_t cyan{36, 'm'};
         constexpr color4_t white{37, 'm'};
+        constexpr color4_t gray{90, 'm'};
 
+        constexpr color4_t normal{39, 'm'};
+        
         namespace bright
         {
             constexpr color4_t black{90, 'm'};
@@ -72,6 +75,9 @@ export namespace ansi::manipulators
         constexpr color4_t magenta{45, 'm'};
         constexpr color4_t cyan{46, 'm'};
         constexpr color4_t white{47, 'm'};
+        constexpr color4_t gray{100, 'm'};
+        
+        constexpr color4_t normal{49, 'm'};
 
         namespace bright
         {
