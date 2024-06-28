@@ -11,7 +11,7 @@ export namespace ansi::manipulators
         constexpr auto down(const value_t n = 1) -> control_t { return {n, 'B'}; }
         constexpr auto forward(const value_t n = 1) -> control_t { return {n, 'C'}; }
         constexpr auto back(const value_t n = 1) -> control_t { return {n, 'D'}; }
-        constexpr auto move(const value_t row) -> control_t { return {row, 'G'}; }
+        constexpr auto move(const value_t column = 1) -> control_t { return {column, 'G'}; }
         constexpr auto move(const value_t row, const value_t column) -> manip<2> { return {row, column, 'H'}; }
     }
 
@@ -23,9 +23,9 @@ export namespace ansi::manipulators
 
     namespace erase
     {
-        enum erase_mode final : value_t { from_caret, to_caret, whole };
+        enum erase_mode final : value_t { from_caret, to_caret, whole, scrollback };
 
-        constexpr auto all(const erase_mode how = whole) -> control_t { return {how, 'J'}; }
+        constexpr auto all(const erase_mode how = scrollback) -> control_t { return {how, 'J'}; }
         constexpr auto line(const erase_mode how = whole) -> control_t { return {how, 'K'}; }
     }
 

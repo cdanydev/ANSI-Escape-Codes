@@ -76,8 +76,8 @@ export namespace ansi
         constexpr auto back(std::ostream& stream, const value_t n = 1) -> void { stream << manipulators::caret::back(n); }
         constexpr auto back(const value_t n = 1) -> void { back(std::cout, n); }
 
-        constexpr auto move(std::ostream& stream, const value_t row) -> void { stream << manipulators::caret::move(row); }
-        constexpr auto move(const value_t row) -> void { up(std::cout, row); }
+        constexpr auto move(std::ostream& stream, const value_t column = 1) -> void { stream << manipulators::caret::move(column); }
+        constexpr auto move(const value_t column = 1) -> void { up(std::cout, column); }
 
         constexpr auto move(std::ostream& stream, const value_t row, const value_t column) -> void { stream << manipulators::caret::move(row, column); }
         constexpr auto move(const value_t row, const value_t column) -> void { move(std::cout, row, column); }
@@ -94,14 +94,14 @@ export namespace ansi
 
     namespace erase
     {
-        enum erase_mode final : value_t { from_caret, to_caret, whole };
+        enum erase_mode final : value_t { from_caret, to_caret, whole, scrollback };
 
-        constexpr auto all(std::ostream& stream, const erase_mode how = whole) -> void
+        constexpr auto all(std::ostream& stream, const erase_mode how = scrollback) -> void
         {
             stream << manipulators::erase::all(static_cast<manipulators::erase::erase_mode>(how));
         }
 
-        constexpr auto all(const erase_mode how = whole) -> void { all(std::cout, how); }
+        constexpr auto all(const erase_mode how = scrollback) -> void { all(std::cout, how); }
 
         constexpr auto line(std::ostream& stream, const erase_mode how = whole) -> void
         {
@@ -139,6 +139,19 @@ export namespace ansi
         ansi::print<Modifiers...>(std::cout, fmt, std::forward<Args>(args)...);
     }
 
+    template <manip... Modifiers>
+    auto print(std::ostream& stream) -> void
+    {
+        if constexpr (sizeof...(Modifiers) > 0)
+            (..., (stream << Modifiers));
+    }
+
+    template <manip... Modifiers>
+    auto print() -> void
+    {
+        ansi::print<Modifiers...>(std::cout);
+    }
+
     template <manip... Modifiers, typename... Args>
     auto println(std::ostream& stream, const std::string_view fmt, Args&&... args) -> void
     {
@@ -150,6 +163,19 @@ export namespace ansi
     auto println(const std::string_view fmt, Args&&... args) -> void
     {
         ansi::println<Modifiers...>(std::cout, fmt, std::forward<Args>(args)...);
+    }
+
+    template <manip... Modifiers>
+    auto println(std::ostream& stream) -> void
+    {
+        ansi::print<Modifiers...>(std::cout);
+        stream << std::endl;
+    }
+
+    template <manip... Modifiers>
+    auto println() -> void
+    {
+        ansi::println<Modifiers...>(std::cout);
     }
 
     inline auto println(std::ostream& stream) -> void
